@@ -33,12 +33,12 @@ pub struct TestClock {
     /// The status of the Test Clock. The status is `ready` if all objects have
     /// advanced to the frozen time, or `advancing` if the objects are still
     /// being processed.
-    pub status: Status,
+    pub status: TestClockStatus,
 }
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Eq, PartialEq, Deserialize, Serialize)]
 #[serde(rename_all = "snake_case")]
-pub enum Status {
+pub enum TestClockStatus {
     Ready,
     Advancing,
 }
