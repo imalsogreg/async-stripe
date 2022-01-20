@@ -187,6 +187,10 @@ pub enum EventType {
     SourceFailed,
     #[serde(rename = "source.transaction.created")]
     SourceTransactionCreated,
+    #[serde(rename = "test_helpers.test_clock.advancing")]
+    TestClockAdvancing,
+    #[serde(rename = "test_helpers.test_clock.ready")]
+    TestClockReady,
     #[serde(rename = "transfer.created")]
     TransferCreated,
     #[serde(rename = "transfer.reversed")]
@@ -240,6 +244,10 @@ pub enum EventObject {
     Review(Review),
     Sku(Sku),
     Subscription(Subscription),
+
+    #[cfg(feature = "test-clock")]
+    TestClock(TestClock),
+
     Transfer(Transfer),
 }
 
